@@ -1,25 +1,11 @@
-import { Resource } from 'sst'
+import { Hono } from 'hono'
+import { http } from '@hash-stream/utils/trustless-ipfs-gateway'
 
-import { AutoRouter, withParams, error, cors } from 'itty-router'
+import { getHashStreamer } from './lib'
 
-import { ipfsGet } from './routes/ipfs'
-import { versionGet } from './routes/version'
-
-// get preflight and corsify pair
-const { preflight, corsify } = cors()
-
-const router = AutoRouter({
-  before: [preflight], // add preflight upstream
-  finally: [corsify], // and corsify downstream
+const app = new Hono().get('/ipfs/:cid', async (c) => {
+  const hashStreamer = getHashStreamer()
+  return http.httpipfsGet(c.req.raw, { hashStreamer })
 })
 
-router
-  .all('*', withParams) // upstream middleware
-  .get('/version', versionGet)
-  .get('/ipfs/:cid', ipfsGet)
-
-export default {
-  async fetch(request: Request, ...args: any[]) {
-    return router.fetch(request, ...args).catch(error)
-  },
-}
+export default app
