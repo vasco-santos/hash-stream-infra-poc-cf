@@ -1,0 +1,66 @@
+{
+  "name": "hash-stream-infra-poc-cf",
+  "version": "1.0.0",
+  "description": "Off-the-shelf Trustless HTTP Server Cloudflare PoC for Content-Addressable Data",
+  "main": "index.js",
+  "author": "Vasco Santos",
+  "license": "Apache-2.0 OR MIT",
+  "scripts": {
+    "format": "prettier --write '**/*.{js,ts,yml,json}' --ignore-path .gitignore",
+    "format:check": "prettier --check '**/*.{js,ts,yml,json}' --ignore-path .gitignore",
+    "lint": "eslint '**/*.{js,ts}' && prettier --check '**/*.{js,ts,yml,json}'",
+    "dev": "npx sst dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasco-santos/hash-stream-infra-poc-cf.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/vasco-santos/hash-stream-infra-poc-cf/issues"
+  },
+  "homepage": "https://github.com/vasco-santos/hash-stream-infra-poc-cf#readme",
+  "dependencies": {
+    "@hash-stream/index": "^1.1.1",
+    "@hash-stream/pack": "^1.1.1",
+    "@hash-stream/streamer": "^1.0.0",
+    "@hash-stream/utils": "^1.2.0",
+    "itty-router": "^5.0.18",
+    "sst": "3.12.3",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "4.20250404.0",
+    "eslint": "^8.57.0",
+    "hd-scripts": "^9.1.0",
+    "lint-staged": "^15.5.0",
+    "prettier": "2.8.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,md,yml,json}": "prettier --write",
+    "*": "eslint --fix"
+  },
+  "prettier": "hd-scripts/prettier.config.js",
+  "eslintConfig": {
+    "extends": [
+      "./node_modules/hd-scripts/eslint/index.js"
+    ],
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "ignorePatterns": [
+      "sst-env.d.ts"
+    ],
+    "rules": {
+      "@typescript-eslint/triple-slash-reference": "off",
+      "@typescript-eslint/prefer-nullish-coalescing": "off",
+      "@typescript-eslint/strict-boolean-expressions": "off"
+    }
+  }
+}
