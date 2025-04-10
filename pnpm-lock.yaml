@@ -20,6 +20,9 @@ importers:
       '@hash-stream/utils':
         specifier: ^1.2.0
         version: 1.2.0(encoding@0.1.13)
+      hono:
+        specifier: ^4.7.6
+        version: 4.7.6
       itty-router:
         specifier: ^5.0.18
         version: 5.0.18
@@ -1659,6 +1662,10 @@ packages:
 
   hono@4.7.4:
     resolution: {integrity: sha512-Pst8FuGqz3L7tFF+u9Pu70eI0xa5S3LPUmrNd5Jm8nTHze9FxLTK9Kaj5g/k4UcwuJSXTP65SyHOPLrffpcAJg==}
+    engines: {node: '>=16.9.0'}
+
+  hono@4.7.6:
+    resolution: {integrity: sha512-564rVzELU+9BRqqx5k8sT2NFwGD3I3Vifdb6P7CmM6FiarOSY+fDC+6B+k9wcCb86ReoayteZP2ki0cRLN1jbw==}
     engines: {node: '>=16.9.0'}
 
   hosted-git-info@2.8.9:
@@ -5483,6 +5490,8 @@ snapshots:
       - supports-color
 
   hono@4.7.4: {}
+
+  hono@4.7.6: {}
 
   hosted-git-info@2.8.9: {}
 
