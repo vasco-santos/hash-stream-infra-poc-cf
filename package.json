@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/vasco-santos/hash-stream-infra-poc-cf#readme",
   "dependencies": {
-    "@hash-stream/index": "^1.1.1",
-    "@hash-stream/pack": "^1.1.1",
-    "@hash-stream/streamer": "^1.0.0",
-    "@hash-stream/utils": "^1.2.0",
+    "@hash-stream/index": "^1.2.0",
+    "@hash-stream/pack": "^1.2.0",
+    "@hash-stream/streamer": "^1.1.0",
+    "@hash-stream/utils": "^1.3.0",
     "hono": "^4.7.6",
     "sst": "3.12.3",
     "typescript": "^5.8.2"
